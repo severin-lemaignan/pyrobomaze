@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 
 import sys
 import time
@@ -7,7 +7,7 @@ import requests
 
 from robomaze.astar import AStar
 
-URL = "https://robomaze.skadge.org/api?"
+URL = "https://robomaze.skadge.org/"
 
 if __name__ == '__main__':
 
@@ -22,7 +22,7 @@ if __name__ == '__main__':
     astar = AStar()
 
     while 1:
-        response = requests.get(URL + "move=" + json.dumps([name, next_move]))
+        response = requests.get(URL + f"move/{name}/{next_move}")
 
         obstacles = json.loads(response.text)[1]
 
